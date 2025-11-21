@@ -17,36 +17,49 @@
     </a>
 
     <div class="flex min-h-screen">
+        <!-- Bagian Kiri (Gambar) -->
         <div class="hidden md:flex md:w-1/2 bg-gray-200 items-center justify-center">
             <img src="{{ Vite::asset('resources/images/login-icon.png') }}" alt="Register Image" class="h-auto w-3/4 object-contain">
         </div>
 
+        <!-- Bagian Kanan (Form) -->
         <div class="w-full md:w-1/2 flex items-center justify-center p-8">
             <div class="w-full max-w-md">
                 <h2 class="text-3xl font-bold text-gray-900 text-center">
                     Buat Akun Pengguna Baru
                 </h2>
+                
+                <!-- BARU: Menampilkan Error Validasi -->
+                @if ($errors->any())
+                    <div class="mt-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg">
+                        <ul class="list-disc list-inside">
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
 
                 <form action="{{ route('register') }}" method="POST" class="mt-8">
                     @csrf
                     <div>
                         <label for="nama_lengkap" class="block text-sm font-medium text-gray-700">Nama Lengkap</label>
                         <div class="mt-1">
-                            <input id="nama_lengkap" name="nama_lengkap" type="text" required
+                            <input id="nama_lengkap" name="nama_lengkap" type="text" required value="{{ old('nama_lengkap') }}"
                                    class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
                         </div>
                     </div>
                     <div class="mt-6">
                         <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
                         <div class="mt-1">
-                            <input id="username" name="username" type="text" required
+                            <input id="username" name="username" type="text" required value="{{ old('username') }}"
                                    class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
                         </div>
                     </div>
                     <div class="mt-6">
                         <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
                         <div class="mt-1">
-                            <input id="email" name="email" type="email" autocomplete="email" required
+                            <input id="email" name="email" type="email" autocomplete="email" required value="{{ old('email') }}"
                                    class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
                         </div>
                     </div>
@@ -57,14 +70,27 @@
                                    class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
                         </div>
                     </div>
+
+                    <!-- 
+                      BARU: Form Konfirmasi Password
+                    -->
+                    <div class="mt-6">
+                        <label for="password_confirmation" class="block text-sm font-medium text-gray-700">Konfirmasi Password</label>
+                        <div class="mt-1">
+                            <input id="password_confirmation" name="password_confirmation" type="password" autocomplete="new-password" required
+                                   class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                        </div>
+                    </div>
+                    <!-- AKHIR MODIFIKASI -->
+
                     <div class="mt-6">
                         <label for="jenis_kelamin" class="block text-sm font-medium text-gray-700">Jenis Kelamin</label>
                         <div class="mt-1">
                             <select id="jenis_kelamin" name="jenis_kelamin" required
                                     class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
-                                <option value="" disabled selected>Pilih Jenis Kelamin</option>
-                                <option value="Laki-laki">Laki-laki</option>
-                                <option value="Perempuan">Perempuan</option>
+                                <option value="" disabled {{ old('jenis_kelamin') ? '' : 'selected' }}>Pilih Jenis Kelamin</option>
+                                <option value="Laki-laki" {{ old('jenis_kelamin') == 'Laki-laki' ? 'selected' : '' }}>Laki-laki</option>
+                                <option value="Perempuan" {{ old('jenis_kelamin') == 'Perempuan' ? 'selected' : '' }}>Perempuan</option>
                             </select>
                         </div>
                     </div>

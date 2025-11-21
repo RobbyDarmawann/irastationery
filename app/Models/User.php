@@ -22,7 +22,6 @@ class User extends Authenticatable
         'email',
         'password',
         'jenis_kelamin',// DITAMBAHKAN
-        // 'role' sengaja tidak ditambahkan agar tidak bisa diisi massal
     ];
 
     /**
