@@ -17,7 +17,7 @@
                     
                     <div class="flex-shrink-0 flex items-center">
                         <a href="{{ url('/') }}">
-                            <img class="h-14 w-auto" src="{{ Vite::asset('resources/images/logo-ira.png') }}" alt="Logo Instansi">
+                            <img class="h-14 w-auto" src="/images/logo-ira.png" alt="Logo Instansi">
                         </a>
                     </div>
                     

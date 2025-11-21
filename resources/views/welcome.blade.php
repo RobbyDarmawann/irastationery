@@ -1,21 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-    <!-- Kontainer Lebar -->
     <div class="w-full mx-auto py-12 px-4 sm:px-6 lg:px-16 xl:px-24">
 
         @if ($promoProducts->isNotEmpty())
             <div class="mb-16">
                 <h2 class="text-3xl font-bold text-gray-900 mb-8">Sedang Promo</h2>
-                
-                <!-- Container Scroll -->
+
                 <div class="flex overflow-x-auto pb-6 -mx-4 px-4 sm:mx-0 sm:px-0 space-x-4 hide-scrollbar">
                     @foreach ($promoProducts as $product)
-                        <!-- 
-                           Wrapper Flex Item 
-                           w-48 (mobile) sampai w-64 (desktop) agar ukuran pas 
-                           flex-shrink-0 agar tidak mengecil
-                        -->
                         <div class="w-48 md:w-64 flex-shrink-0">
                             <x-product-card :product="$product" />
                         </div>
@@ -24,9 +17,6 @@
             </div>
         @endif
 
-        <!-- ================================== -->
-        <!-- SEKSI 2: PRODUK TERLARIS (HORIZONTAL SCROLL) -->
-        <!-- ================================== -->
         @if ($bestSellerProducts->isNotEmpty())
             <div class="mb-16">
                 <div class="flex items-center mb-8">
@@ -35,14 +25,11 @@
                         Top 3
                     </span>
                 </div>
-                
-                <!-- Container Scroll -->
+
                 <div class="flex overflow-x-auto pb-6 -mx-4 px-4 sm:mx-0 sm:px-0 space-x-4 hide-scrollbar">
                     @foreach ($bestSellerProducts as $index => $product)
-                        <!-- Wrapper Flex Item -->
-                        <div class="w-48 md:w-64 flex-shrink-0 relative pt-3 pl-3"> <!-- pt/pl untuk ruang badge -->
-                            
-                            <!-- Badge Peringkat (Kiri Atas) -->
+                        <div class="w-48 md:w-64 flex-shrink-0 relative pt-3 pl-3">
+
                             <div class="absolute top-0 left-0 z-20 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full text-white font-bold text-lg md:text-xl shadow-lg border-2 border-white
                                 {{ $index == 0 ? 'bg-yellow-500' : ($index == 1 ? 'bg-gray-400' : 'bg-[#cd7f32]') }}">
                                 #{{ $index + 1 }}
@@ -78,7 +65,6 @@
         </div>
     </div>
 
-    <!-- Optional: Style untuk menyembunyikan scrollbar tapi tetap bisa discroll -->
     <style>
         .hide-scrollbar::-webkit-scrollbar {
             display: none;

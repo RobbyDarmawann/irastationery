@@ -9,7 +9,7 @@
 
         <div class="p-3 sm:p-6">
             <a href="{{ route('produk.detail', $product) }}">
-                <!-- Judul lebih kecil di mobile (text-sm) -->
+                
                 <h3 class="text-sm sm:text-lg font-semibold text-gray-900 hover:text-indigo-700 line-clamp-2 leading-tight min-h-[2.5em]">
                     {{ $product->nama_produk }}
                 </h3>

@@ -22,7 +22,7 @@
     <div class="flex min-h-screen">
         <!-- Bagian Kiri (Gambar) -->
         <div class="hidden md:flex md:w-1/2 bg-gray-200 items-center justify-center">
-            <img src="{{ Vite::asset('resources/images/login-icon.png') }}" alt="Login Image" class="h-auto w-3/4 object-contain">
+            <img src="/images/login-icon.png" alt="Login Image" class="h-auto w-3/4 object-contain">
         </div>
 
         <!-- Bagian Kanan (Form) -->

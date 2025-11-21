@@ -29,9 +29,9 @@
                     
                     <input type="text" name="search" placeholder="Cari (Nama, Kategori, Kode)..." 
                            value="{{ request('search') }}"
-                           class="w-full pl-10 pr-4 py-2 border rounded-l-md text-gray-700 bg-white focus:outline-none focus:ring focus:ring-indigo-300">
+                           class="w-full pl-10 pr-4 py-2 border rounded-l-md border-gray-400 text-gray-700 bg-white focus:outline-none focus:ring focus:ring-indigo-300">
                     
-                    <button type="submit" class="px-4 py-2 bg-indigo-600 text-white rounded-r-md font-medium hover:bg-indigo-700">
+                    <button type="submit" class="px-4 py-2 bg-[#faa918] text-white rounded-r-md font-medium hover:bg-indigo-700">
                         Cari
                     </button>
                 </div>
@@ -39,7 +39,7 @@
             
             <div class="mt-4 sm:mt-0">
                 <a href="{{ route('admin.products.create') }}" 
-                   class="flex items-center justify-center px-4 py-2 bg-indigo-600 text-white rounded-md font-medium hover:bg-indigo-700">
+                   class="flex items-center justify-center px-4 py-2 bg-[#faa918] text-white rounded-md font-medium hover:bg-indigo-700">
                     <svg class="h-5 w-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" /></svg>
                     Tambah Produk
                 </a>
@@ -47,7 +47,7 @@
         </div>
 
         <div class="flex flex-col mt-6">
-            <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+            <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8 hide-scrollbar">
                 <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                     <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                         <table class="min-w-full divide-y divide-gray-200">

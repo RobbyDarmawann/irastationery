@@ -12,10 +12,11 @@
         @if ($promoProducts->isNotEmpty())
             <div class="mb-16">
                 <h2 class="text-2xl font-semibold text-gray-800 mb-6">Promo Kategori Ini</h2>
-                <div class="grid grid-cols-2 gap-4 md:gap-6 md:grid-cols-3 lg:grid-cols-4">
-                    
+                <div class="flex overflow-x-auto pb-6 -mx-4 px-4 sm:mx-0 sm:px-0 space-x-4 hide-scrollbar">
                     @foreach ($promoProducts as $product)
-                        <x-product-card :product="$product" />
+                        <div class="w-48 md:w-64 flex-shrink-0">
+                            <x-product-card :product="$product" />
+                        </div>
                     @endforeach
 
                 </div>

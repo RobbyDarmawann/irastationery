@@ -13,7 +13,7 @@
                 </label>
                 <input type="text" id="nama_lengkap" 
                        value="{{ $user->nama_lengkap }}"
-                       class="w-full px-3 py-2 border rounded-md text-gray-700 bg-gray-100 focus:outline-none" 
+                       class="w-full px-3 py-2 border border-gray-300 rounded-md text-gray-700 bg-gray-100 focus:outline-none" 
                        disabled> </div>
 
             <div class="mb-6">
@@ -22,7 +22,7 @@
                 </label>
                 <input type="text" id="username" 
                        value="{{ $user->username }}"
-                       class="w-full px-3 py-2 border rounded-md text-gray-700 bg-gray-100 focus:outline-none" 
+                       class="w-full px-3 py-2 border border-gray-300 rounded-md text-gray-700 bg-gray-100 focus:outline-none" 
                        disabled>
             </div>
 
@@ -32,7 +32,7 @@
                 </label>
                 <input type="email" id="email" 
                        value="{{ $user->email }}"
-                       class="w-full px-3 py-2 border rounded-md text-gray-700 bg-gray-100 focus:outline-none" 
+                       class="w-full px-3 py-2 border border-gray-300 rounded-md text-gray-700 bg-gray-100 focus:outline-none" 
                        disabled>
             </div>
             
