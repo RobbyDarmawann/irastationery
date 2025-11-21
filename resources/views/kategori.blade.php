@@ -7,7 +7,6 @@
         <div class="grid grid-cols-3 gap-4 md:grid-cols-6 lg:grid-cols-8 md:gap-6">
             
             @php
-                // Daftar semua kategori Anda
                 $kategori = [
                     'Aksesoris', 'Alat Musik', 'Alat Sholat', 'Alat Tulis Sekolah',
                     'Bahan Kue', 'Buku & Majalah', 'Dekorasi Interior', 'Elektronik',
@@ -20,7 +19,6 @@
 
             @foreach ($kategori as $item)
                 @php
-                    // Membuat nama file dari nama kategori (mis: "Alat Tulis Sekolah" -> "alat-tulis-sekolah.png")
                     $slug = Str::slug($item);
                     $gambar = "resources/images/kategori/{$slug}.png";
                 @endphp
