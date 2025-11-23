@@ -17,19 +17,16 @@
     </a>
 
     <div class="flex min-h-screen">
-        <!-- Bagian Kiri (Gambar) -->
         <div class="hidden md:flex md:w-1/2 bg-gray-200 items-center justify-center">
             <img src="/images/logo-ira.png" alt="Register Image" class="h-auto w-3/4 object-contain">
         </div>
 
-        <!-- Bagian Kanan (Form) -->
         <div class="w-full md:w-1/2 flex items-center justify-center p-8">
             <div class="w-full max-w-md">
                 <h2 class="text-3xl font-bold text-gray-900 text-center">
                     Buat Akun Pengguna Baru
                 </h2>
-                
-                <!-- BARU: Menampilkan Error Validasi -->
+
                 @if ($errors->any())
                     <div class="mt-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg">
                         <ul class="list-disc list-inside">
@@ -71,9 +68,6 @@
                         </div>
                     </div>
 
-                    <!-- 
-                      BARU: Form Konfirmasi Password
-                    -->
                     <div class="mt-6">
                         <label for="password_confirmation" class="block text-sm font-medium text-gray-700">Konfirmasi Password</label>
                         <div class="mt-1">
@@ -81,7 +75,6 @@
                                    class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
                         </div>
                     </div>
-                    <!-- AKHIR MODIFIKASI -->
 
                     <div class="mt-6">
                         <label for="jenis_kelamin" class="block text-sm font-medium text-gray-700">Jenis Kelamin</label>

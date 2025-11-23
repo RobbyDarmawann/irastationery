@@ -19,7 +19,6 @@ class UserNotificationController extends Controller
 
         if ($notification) {
             $notification->markAsRead();
-            // Redirect ke riwayat pesanan untuk melihat detailnya
             return redirect()->route('riwayat.index'); 
         }
 

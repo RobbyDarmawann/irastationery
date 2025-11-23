@@ -10,8 +10,6 @@ class UserOrderController extends Controller
 {
     public function index()
     {
-        // Ambil semua pesanan milik user yang sedang login
-        // Urutkan dari yang terbaru
         $orders = Order::with('items.product')
                        ->where('user_id', Auth::id())
                        ->latest()

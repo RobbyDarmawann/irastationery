@@ -20,25 +20,17 @@ class KeranjangController extends Controller
         return view('keranjang.index', compact('products'));
     }
 
-    /**
-     * Memproses Checkout
-     */
 public function checkout(Request $request)
     {
-        // 1. Validasi Data
         $request->validate([
             'items' => 'required|array',
             'items.*' => 'integer|min:1',
-            // Validasi Tanggal & Jam
             'pickup_date' => 'required|date|after_or_equal:today',
             'pickup_time' => 'required', 
         ]);
 
         $pickupDate = $request->input('pickup_date');
         $pickupTime = $request->input('pickup_time');
-
-        // ... (Logika validasi stok & harga sama seperti sebelumnya) ...
-        
         $cartItems = $request->input('items');
         $productIds = array_keys($cartItems);
         $products = Product::whereIn('id', $productIds)->get();
@@ -76,14 +68,13 @@ public function checkout(Request $request)
                 $product->decrement('stok', $qty);
             }
 
-            // 3. Buat Order Utama (DENGAN TANGGAL PICKUP)
             $order = Order::create([
                 'user_id' => Auth::id(),
                 'total_price' => $totalPrice,
                 'status' => 'pending',
                 'payment_status' => 'unpaid',
-                'pickup_date' => $pickupDate, // SIMPAN TANGGAL
-                'pickup_time' => $pickupTime, // SIMPAN JAM
+                'pickup_date' => $pickupDate, 
+                'pickup_time' => $pickupTime, 
                 'alamat_pengiriman' => 'Ambil di Toko', 
             ]);
 

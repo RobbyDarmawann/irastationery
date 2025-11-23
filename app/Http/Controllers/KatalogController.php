@@ -10,18 +10,13 @@ use App\Models\Category;
 
 class KatalogController extends Controller
 {
-    /**
-     * Menampilkan Landing Page (Welcome)
-     */
     public function index()
     {
-        // 1. Produk Promo
         $promoProducts = Product::whereNotNull('harga_diskon')
                                 ->where('harga_diskon', '<', DB::raw('harga'))
                                 ->orderBy('nama_produk', 'asc')
                                 ->get();
-        
-        // 2. Produk Terlaris
+
         $bestSellerProducts = Product::select('products.*', DB::raw('SUM(order_items.quantity) as total_sold'))
             ->join('order_items', 'products.id', '=', 'order_items.product_id')
             ->join('orders', 'order_items.order_id', '=', 'orders.id')
@@ -31,26 +26,17 @@ class KatalogController extends Controller
             ->take(3) 
             ->get();
 
-        // 3. Semua Produk (Katalog)
         $allProducts = Product::orderBy('nama_produk', 'asc')->get();
 
-        // MODIFIKASI DI SINI:
-        // Menambahkan 'bestSellerProducts' ke dalam compact()
         return view('welcome', compact('promoProducts', 'allProducts', 'bestSellerProducts'));
     }
 
-    /**
-     * Menampilkan halaman grid SEMUA kategori.
-     */
     public function showCategoryGrid()
     {
         $categories = Category::orderBy('nama_kategori', 'asc')->get();
         return view('kategori', compact('categories'));
     }
 
-    /**
-     * Menampilkan halaman produk berdasarkan KATEGORI.
-     */
     public function showProductsByCategory($kategori_slug)
     {
         $kategoriNama = Str::of($kategori_slug)->replace('-', ' ')->title();
@@ -71,9 +57,6 @@ class KatalogController extends Controller
         ]);
     }
 
-    /**
-     * Menampilkan halaman hasil pencarian.
-     */
     public function search(Request $request)
     {
         $request->validate([

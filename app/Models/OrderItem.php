@@ -16,13 +16,11 @@ class OrderItem extends Model
         'price',
     ];
 
-    // Relasi ke Produk (untuk mengambil nama, gambar, dll)
     public function product()
     {
         return $this->belongsTo(Product::class);
     }
 
-    // Relasi ke Order (induknya)
     public function order()
     {
         return $this->belongsTo(Order::class);

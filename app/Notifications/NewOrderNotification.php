@@ -19,7 +19,7 @@ class NewOrderNotification extends Notification
 
     public function via($notifiable)
     {
-        return ['database']; // Kita simpan ke database
+        return ['database']; 
     }
 
     public function toArray($notifiable)
@@ -28,7 +28,7 @@ class NewOrderNotification extends Notification
             'order_id' => $this->order->id,
             'user_name' => $this->order->user->nama_lengkap,
             'total_price' => $this->order->total_price,
-            'message' => 'Pesanan baru #' . $this->order->id . ' dari ' . $this->order->user->nama_lengkap,
+            'message' => 'Pesanan baru dengan kode order #' . $this->order->id . ' dari ' . $this->order->user->nama_lengkap,
             'time' => now(),
         ];
     }
